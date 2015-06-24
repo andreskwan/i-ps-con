@@ -17,11 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self declareAndCallBlock];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)declareAndCallBlock
+{
+    int (^squareBlock)(int) = ^int(int number){
+        return number * number;
+    };
+    NSLog(@"Block return value: %d",squareBlock(7));
 }
 
 @end
