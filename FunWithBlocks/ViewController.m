@@ -14,6 +14,8 @@
 
 @implementation ViewController
 
+typedef int (^IntBlock)(int);
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -27,7 +29,7 @@
 
 - (void)declareAndCallBlock
 {
-    int (^squareBlock)(int) = ^int(int number){
+    IntBlock squareBlock =  ^int(int number){
         return number * number;
     };
     NSLog(@"Block return value: %d",squareBlock(7));
