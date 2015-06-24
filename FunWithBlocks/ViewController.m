@@ -19,7 +19,7 @@ typedef int (^IntBlock)(int);
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self declareAndCallBlock];
+    [self shareScopeVars];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,4 +35,14 @@ typedef int (^IntBlock)(int);
     NSLog(@"Block return value: %d",squareBlock(7));
 }
 
+- (void)shareScopeVars {
+    NSString *weather = @"Rainy";
+    NSLog(@"Weather before block: %@", weather);
+    
+    void (^changeWeather)(void) = ^{
+        NSLog(@"Weather inside block: %@",weather);
+    };
+    
+    changeWeather();
+}
 @end
