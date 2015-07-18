@@ -17,6 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserverForName:nil
+                        object:nil
+                         queue:nil
+                    usingBlock:^(NSNotification *notification)
+    {
+        NSLog(@"Notification name: %@", notification.name);
+    }];
     return YES;
 }
 
