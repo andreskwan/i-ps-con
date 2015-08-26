@@ -37,6 +37,7 @@ typedef int (^IntBlock)(int);
             NSLog(@"stop value: %@",*stop?@"YES":@"NO");
         }
         NSLog(@"Index %lu, Name: %@.",(unsigned long)idx,[name uppercaseString]);
+        NSLog(@"stop value: %@",*stop?@"YES":@"NO");
         NSLog(@"stop value: %d",*stop);
         NSLog(@"%lu",(unsigned long)idx);
     }];
